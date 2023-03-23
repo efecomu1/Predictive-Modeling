@@ -1,0 +1,74 @@
+RFLA 300 – Predictive Modeling
+Efe Comu
+
+Sprint 1 – Lab 2 Document
+
+•	Question: What is the probability that an arbitrary woman survived the sinking?
+-	Looking at the left node after the first split, we can see that 74.2% of women survived the sinking.
+
+•	Question: What is the second-level split used to further separate the women?
+-	Their passenger level class. Passenger level classes 1 and 2 are shown in the left node, and passenger class 3 is shown in the right node.
+
+•	Question: What can you say about women in the 1st and 2nd passenger classes vs. women in the 3rd class? What were the differences in their survival rates?
+-	There’s a significant difference between the survival rate of women in the 1st and 2nd passenger classes vs. women in the 3rd class. Women in the 1st and 2nd passenger classes had a survival rate of 94.7%, whereas women in the 3rd class had a survival rate of only 50%.
+
+•	Question: What is the probability that an average man survived the sinking?
+-	Unlike an average women, the probability that an average man survived the sinking is only 19%, even though men accounted for 64.6% of the population of Titanic.
+
+•	Question: What is the second-level split used to further separate the men? What differences in survival rates do you observe between the two second level categories?
+-	The second-level split used to further separate the men is age. Men with an age lower than or equal to 13 had a survival rate of 56.1%, whereas men with an age greater than 13 only had a survival rate of 16.2%. This shows that age was also a really big factor that affected the survival rates amongst men.
+
+Practice:
+Example 1: PClass = 1, Age = 11, Sex = M ---> Prediction: Survived
+Example 2: PClass = 2, Age = 34, Sex = F ---> Prediction: Survived
+Example 3: PClass = 3, Age = 58, Sex = F ---> Prediction: 50-50, if I had to guess, Did Not Survive
+
+Question: What qualitative comparisons can you make between this tree and the previous tree? Do you think this tree is going to be a more accurate classifier than the last one? Why or why not?
+
+-	Even though the tree with a depth of 10 is harder to read at the first glance, this tree is going to be a way more accurate classifier than the last one. This is because by having many more sub-divisions, this tree analyzes the effect of almost every range in every factor by dividing the tree into smaller pieces, to determine more accurate factors that affected the survival rate on the Titanic. However, for this dataset with only 887 entries, a tree with a depth of 10 could overfit the data and lead to misleading conclusions for other data sets.
+
+Question: Do a little Internet research and find a definition of overfitting. Why is overfitting bad for ML models?
+
+-	The term overfitting refers to a model that models a certain dataset too specific, which restricts the accurate use of that model on other datasets. That’s why overfitting is bad for ML models, since it could cause some misleading conclusion whenever the input data changes.
+
+Question: What is the accuracy of the model with a depth of 2? What is the accuracy of the model with a depth of 10?
+
+-	The accuracy of the model with a depth of 2: 80.2%
+-	The accuracy of the model with a depth of 10: 80.8%
+
+
+Question: Evaluate your model for settings of max_depth from 1 to 20. Record the accuracy generated in each case. Does your data suggest a good tradeoff points between the size of the tree and classification accuracy?
+
+Accuracies of depth:
+-	1: 78.8%		11: 80.5%
+-	2: 79.1%		12: 79.1%
+-	3: 79.5%		13: 80.5%
+-	4: 80.2%		14: 79.9%
+-	5: 81.6%		15: 80.5%
+-	6: 76.1%		16: 78.8%
+-	7: 81.9%		17: 81.5%
+-	8: 75.0%		18: 80.2%
+-	9: 79.2%		19: 78.2%
+-	10: 80.5%		20: 77.4%
+
+-	Even though the accuracy tend to drop after a max_depth of 19, my data doesn’t suggest good tradeoff points between the size of the tree and classification accuracy.
+
+Question: What does MNIST stand for? Where did the image data come from?
+
+-	MNIST stands for the Modified National Institute of Standards and Technology. The image came from a dataset of 60,000 28×28 pixel grayscale images of handwritten single digits between 0 and 9.
+
+Question: What is the accuracy of this MNIST classification model?
+-	74.7%
+Question: Experiment with changing the max_depth of the tree. What effects does changing depth have on the output?
+
+-	Changing the max_depth of the tree below 8 results in a decreased accuracy, which can go down to 40% for a max_depth of 3. However, depth between 8-20 gives almost the same accuracy as the first model with no max_depth specified.
+
+
+Question: What are the two most-frequently misclassified digit pairs? 
+
+-	As the matrix suggests, the two most-frequently misclassified digit pairs are 5-9 and 3-7.
+
+
+Question: What is the impact of random forest classifier on prediction accuracy? Does it lead to any significant changes in the misclassified pairs in the confusion matrix?
+
+-	Random forest classifier’s prediction accuracy is 93.0%. It significantly decreases the misclassified digit pairs in the confusion matrix, and the most-frequent misclassified digit pair in the new confusion matrix is 1-9, which is 8 times.
